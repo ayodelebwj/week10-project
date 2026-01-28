@@ -5,6 +5,14 @@ terraform {
         region = "us-east-2"
         encrypt = true
     }
+    required_providers {
+        source = "hashicorp/terraform"
+        version = "~=5.0"
+    }
+}
+
+provider "aws" {
+  region = "us-east-2"
 }
 
 resource "ec2_instance" "java-node" {
