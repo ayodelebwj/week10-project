@@ -4,6 +4,8 @@ terraform {
     key     = "env/prod/terraform.tfstate"
     region  = "us-east-2"
     encrypt = true
+    dynamodb_table = "terraform-locks"
+
   }
 
   //required_version = ">= 1.5.0"
