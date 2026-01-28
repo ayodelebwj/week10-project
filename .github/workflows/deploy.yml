@@ -36,7 +36,7 @@ jobs:
 
       - name: Terraform Init
         working-directory: terraform
-        run: terraform init || terraform fmt || terraform validate
+        run: terraform init 
 
       - name: Terraform Apply
         working-directory: terraform
