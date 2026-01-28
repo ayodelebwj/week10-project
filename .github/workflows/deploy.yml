@@ -51,7 +51,7 @@ jobs:
           JAVA_IP=$(terraform output -raw java_node_ip)
           NGINX_IP=$(terraform output -raw nginx_node_ip)
 
-          cat <<EOF > ../ansible/inventory.ini
+          cat <<EOF > ../ansible/hosts
           [java-node]
           $FRONTEND_IP 
 
