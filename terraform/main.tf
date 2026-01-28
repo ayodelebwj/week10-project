@@ -6,12 +6,12 @@ terraform {
     encrypt = true
   }
 
-  required_version = ">= 1.5.0"
+  required_version = "= 1.5.0"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "= 5.0.0"
     }
   }
 }
@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 resource "ec2_instance" "java-node" {
-    ami = ""
+    ami = "ami-06e3c045d79fd65d9"
     key_name = "deledele"
     instance_type = "t3.micro"
 
@@ -32,7 +32,7 @@ resource "ec2_instance" "java-node" {
 }
 
 resource "ec2_instance" "nginx-node" {
-    ami = ""
+    ami = "ami-06e3c045d79fd65d9"
     key_name = "deledele"
     instance_type = "t3.micro"
 
