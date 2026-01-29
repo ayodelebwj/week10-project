@@ -21,14 +21,6 @@ jobs:
           aws-region: us-east-2
 
       # -------------------------
-      # SSH Key for Ansible
-      # -------------------------
-      - name: Set up SSH key
-        run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/key.pem
-          chmod 400 /tmp/key.pem
-
-      # -------------------------
       # Terraform
       # -------------------------
       - name: Setup Terraform
@@ -70,4 +62,6 @@ jobs:
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/key.pem
+          chmod 400 /tmp/key.pem
           ansible-playbook -i hosts playbook.yml -vvvvv
