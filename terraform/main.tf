@@ -18,7 +18,7 @@ provider "aws" {
   region = "us-east-2"
 }
 
-resource "ec2_instance" "java-node" {
+resource "aws_instance" "java-node" {
     ami = "ami-06e3c045d79fd65d9"
     key_name = "deledele"
     instance_type = "t3.micro"
@@ -28,7 +28,7 @@ resource "ec2_instance" "java-node" {
     }
 }
 
-resource "ec2_instance" "nginx-node" {
+resource "aws_instance" "nginx-node" {
     ami = "ami-06e3c045d79fd65d9"
     key_name = "deledele"
     instance_type = "t3.micro"

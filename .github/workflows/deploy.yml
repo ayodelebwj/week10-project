@@ -48,12 +48,16 @@ jobs:
       - name: Generate Ansible inventory
         working-directory: terraform
         run: |
-          JAVA_IP=$(terraform output -raw java_node_ip)
-          NGINX_IP=$(terraform output -raw nginx_node_ip)
+          JAVA_IP=$(terraform output -raw java-node-ip)
+          NGINX_IP=$(terraform output -raw nginx-node-ip)
 
           cat <<EOF > ../ansible/hosts
           [java-node]
-          $FRONTEND_IP 
+          $JAVA_IP 
+
+          [nginx-node]
+          $NGINX_IP 
+          EOF
 
           [nginx-node]
           $BACKEND_IP 
@@ -70,4 +74,4 @@ jobs:
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
-          ansible-playbook -i hosts deploy.yml
+          ansible-playbook -i hosts playbook.yml
