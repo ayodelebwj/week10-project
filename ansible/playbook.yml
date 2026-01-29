@@ -7,16 +7,17 @@
       apt:
         name: openjdk-17-jdk
         state: present
+        update_cache: yes
 
 - name: Install Nginx on Nginx nodes
   hosts: nginx-node
   become: true
   tasks:
-
     - name: Install Nginx
       apt:
         name: nginx
         state: present
+        update_cache: yes
 
     - name: Ensure Nginx is running and enabled
       service:
