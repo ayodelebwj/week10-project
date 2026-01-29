@@ -62,6 +62,7 @@ jobs:
       - name: Run Ansible Playbook
         working-directory: ansible
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > /tmp/key.pem
+          echo "${{ secrets.AWS_SSH_KEY }}" > /tmp/key.pem
           chmod 400 /tmp/key.pem
           ansible-playbook -i hosts playbook.yml -vvvvv
+          rm /tmp/key.pem
