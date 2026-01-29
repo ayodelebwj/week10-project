@@ -46,7 +46,7 @@ jobs:
           cat <<EOF > ../ansible/hosts
           [java-node]
           $JAVA_IP 
-
+          
           [nginx-node]
           $NGINX_IP 
           EOF
@@ -68,9 +68,8 @@ jobs:
         working-directory: ansible
         run: |
           ansible-playbook -i hosts playbook.yml -vvvvv
-          rm /tmp/key.pem
 
       - name: Run Ansible Playbook
         run:
-          rm /tmp/key.pem
+          rm -f /tmp/key.pem
 
