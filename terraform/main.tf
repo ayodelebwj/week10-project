@@ -5,17 +5,14 @@ terraform {
     region  = "us-east-2"
     encrypt = true
     dynamodb_table = "terraform-locks"
-
   }
-
- // required_providers {
-  //  aws = {
-  //    source  = "hashicorp/aws"
- //     version = "~> 5.0.0"
- //   }
- // }
-//}
-
+ required_providers {
+  aws = {
+  source  = "hashicorp/aws"
+   version = "~> 5.0.0"
+    }
+  }
+}
 
 provider "aws" {
   region = "us-east-2"
@@ -41,4 +38,3 @@ resource "ec2_instance" "nginx-node" {
     }
 }
 
-//note njbjbjkjnkjn
