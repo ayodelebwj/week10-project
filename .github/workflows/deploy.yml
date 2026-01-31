@@ -69,7 +69,7 @@ jobs:
         run: |
           ansible-playbook -i hosts playbook.yml -vvvvv
 
-      - name: Run Ansible Playbook
+      - name: Remove SSH key
         run:
           rm -f /tmp/key.pem
 
